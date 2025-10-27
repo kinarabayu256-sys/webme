@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sayang Akuuu 🥺💖</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f8c8dc, #e3a7ff);
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #e84393;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0 8px;
+    }
+
+    #maafin {
+      background-color: #ff69b4;
+      color: white;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+
+    #maafin:hover {
+      background-color: #ff85c1;
+    }
+
+    #enggak {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    #enggak:hover {
+      background-color: #bbb;
+    }
+
+    /* Modal Pop-up */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.5s ease forwards;
+      width: 320px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      color: #e84393;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Love animation */
+    .love {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 20px;
+      animation: float 2s ease-in-out forwards;
+    }
+
+    @keyframes float {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Kamu Sayang Aku Ga Sih 🥺💖</h1>
+    <p>Aku Tuh Sayang Banget Sama Kamu Tau Ehehehe 😘😘.<br>Sayang aku, Kan? 🥺</p>
+    <div>
+      <button id="maafin">Sayangg 💖</button>
+      <button id="enggak">Gaxk 😡</button>
+    </div>
+  </div>
+
+  <!-- Modal Output -->
+  <div class="modal" id="popup">
+    <div class="modal-content">
+      <h2>Yay! Makasih Sayang Aku Juga Sayang Banget 😭💖</h2>
+      <p>Lopyu Lopyuuu yaa EKAaaaaa 🥹✨</p>
+    </div>
+  </div>
+
+  <script>
+    const maafinBtn = document.getElementById('maafin');
+    const enggakBtn = document.getElementById('enggak');
+    const popup = document.getElementById('popup');
+
+    // Klik "Enggak" -> tombol Maafin membesar
+    enggakBtn.addEventListener('click', () => {
+      const currentSize = parseFloat(window.getComputedStyle(maafinBtn).fontSize);
+      maafinBtn.style.fontSize = (currentSize + 3) + 'px';
+      maafinBtn.style.padding = '15px 35px';
+    });
+
+    // Klik "Maafin" -> muncul popup dan efek love
+    maafinBtn.addEventListener('click', () => {
+      popup.style.display = 'flex';
+      createHearts();
+    });
+
+    // Klik di luar popup untuk menutup
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+
+    // Fungsi efek love 💖
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('love');
+        heart.innerHTML = '💖';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.bottom = '0px';
+        heart.style.animationDuration = (1.5 + Math.random()) + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+      }
+    }
+  </script>
+</body>
+</html>
